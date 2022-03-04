@@ -8,6 +8,7 @@
 #include "button.h"
 #include "LCD.h"
 #include "util/delay.h"
+#define F_CPU 
 
 #define DISPLAY_ON_CURSOR_OFF 0x0C
 
@@ -15,13 +16,13 @@ void resetMachine(void)
 //Function to reset the screen
 {
 	LCD_clearscreen();
-	LCD_vSend_string("A=00");
+	LCD_vSend_string("A=0");
 	LCD_movecursor(2,1);
-	LCD_vSend_string("B=00");
+	LCD_vSend_string("B=0");
 	LCD_movecursor(1,8);
-	LCD_vSend_string("C=00");
+	LCD_vSend_string("C=0");
 	LCD_movecursor(2,8);
-	LCD_vSend_string("D=00");
+	LCD_vSend_string("D=0");
 }
 
 
@@ -37,15 +38,11 @@ int main(void)
 	LCD_vInit();
 	LCD_vSend_cmd(DISPLAY_ON_CURSOR_OFF);
 	//the Units digit of Choices declaration
-	char a=48;
-	char b=48; 
-	char c=48;
-	char d=48;
-	//The Tenth Digit of Choices declaration
-	char a_a=48;
-	char b_b=48;
-	char c_c=48;
-	char d_d=48;
+	char a=0;
+	char b=0; 
+	char c=0;
+	char d=0;
+
 	//Send Initial Data to the LCD
 	resetMachine();
 	
@@ -56,94 +53,109 @@ int main(void)
 		if(button_read('A',4)==1)
 		{
 			resetMachine();
-			a = 48;
-			b = 48;
-			c = 48;
-			d = 48;
+			a = 0;
+			b = 0;
+			c = 0;
+			d = 0;
+			/*
 			a_a=48;
 			b_b=48;
 			c_c=48;
 			d_d=48;
+			*/
 		}
 		//Voting for A Setup	
 		if(button_read('A',0)==1)
 		{
 			LCD_movecursor(1,3);
-			if((a-48)<9)
+			if(a<9)
 			{
 				a++;
-				LCD_vSend_char((char)a_a);
-				LCD_vSend_char((char)a);
+				/*LCD_vSend_char((char)a_a);*/
+				LCD_vSend_char(a+48);
 			}
 			else
 			{
+				/*
 				a=48;
 				a_a++;
-				LCD_vSend_char((char)a_a);
-				LCD_vSend_char((char)a);
+				*/
+				a++;
+				LCD_vSend_char(a/10 + 48);
+				LCD_vSend_char(a%10 + 48);
 			}
-			_delay_ms(250);
 		}
 		
 		//Voting for B Setup
 		if(button_read('A',1)==1)
 		{
 			LCD_movecursor(2,3);
-			if((b-48)<9)
+			if(b<9)
 			{
 				b++;
-				LCD_vSend_char((char)b_b);
-				LCD_vSend_char((char)b);
+				//LCD_vSend_char((char)b_b);
+				LCD_vSend_char(b+48);
 			}
 			else
 			{
+				/*
 				b=48;
 				b_b++;
-				LCD_vSend_char((char)b_b);
-				LCD_vSend_char((char)b);
+				*/
+				//LCD_vSend_char((char)b_b);
+				b++;
+				LCD_vSend_char(b/10 + 48);
+				LCD_vSend_char(b%10 + 48);
 			}
-			_delay_ms(250);
+			
 		}
 		
 		//Voting for C Setup
 		if(button_read('A',2)==1)
 		{
 			LCD_movecursor(1,10);
-			if((c-48)<9)
+			if(c<9)
 			{
 				c++;
-				LCD_vSend_char((char)c_c);
-				LCD_vSend_char((char)c);
+				//LCD_vSend_char((char)c_c);
+				LCD_vSend_char(c+48);
 			}
 			else
 			{
-				c=48;
-				c_c++;
-				LCD_vSend_char((char)c_c);
-				LCD_vSend_char((char)c);
+				/*
+				b=48;
+				b_b++;
+				*/
+				c++;
+				LCD_vSend_char(c/10 + 48);
+				LCD_vSend_char(c%10 + 48);
 			}
-			_delay_ms(250);
+			
 		}
 		
 		//Voting for D Setup
 		if(button_read('A',3)==1)
 		{
 			LCD_movecursor(2,10);
-			if((d-48)<9)
+			if(d<9)
 			{
 				d++;
-				LCD_vSend_char((char)d_d);
-				LCD_vSend_char((char)d);
+				//LCD_vSend_char((char)d_d);
+				LCD_vSend_char(d+48);
 			}
 			else
 			{
+				/*
 				d=48;
 				d_d++;
-				LCD_vSend_char((char)d_d);
-				LCD_vSend_char((char)d);
+				*/
+				d++;
+				LCD_vSend_char(d/10 + 48);
+				LCD_vSend_char(d%10 + 48);
 			}
-			_delay_ms(250);
+			
 		}
+		_delay_ms(200);
 		
     }
 }
