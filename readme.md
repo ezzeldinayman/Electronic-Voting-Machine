@@ -30,7 +30,7 @@
 <hr>
 <pre>
   You can find also output files for the project in the debug folder including
-  Assembly(.lss) and (.hex) file to be implemented in MicroController ROM.
+  Assembly(.lss) and (.hex) file to be Embedded in MicroController ROM.
 </pre>
 <h2>Thank you.</h2>
 <br>
