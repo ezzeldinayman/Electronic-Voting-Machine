@@ -5,17 +5,17 @@ You can find the following files in the repo:
 
 1) DIO.c
 2) DIO.h
-Drivers for Digital Input/Output of ATmega32 MicroController
++Drivers for Digital Input/Output of ATmega32 MicroController
 
 3)LCD.c
 4)LCD.h
-Drivers for interfacing with LM016(2*16) Hitachi LCD
++Drivers for interfacing with LM016(2*16) Hitachi LCD
 
 5)Button.c
 6)Button.h
-Push button configuration functions
++Push button configuration functions
 
 7)ElectronicVotingMachine.c
-Main Program File for the Project
++Main Program File for the Project
 
-Thank you.
++Thank you.
