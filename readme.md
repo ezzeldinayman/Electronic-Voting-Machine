@@ -1,7 +1,7 @@
 <h1>Electronic Voting Machine Project</h1>
 <h3>Iam Ezz Edin and this is my first embedded systems project on AVR-based Micro-controller (ATMega32)</h3>
 <hr>
-<img src="circuit.jpg" alt="Schematic of the Circuit" width="800px"/>
+<img src="circuit.jpg" alt="Schematic of the Circuit" width="100%"/>
 <hr>
 <p>You can find the following files in the repo: <p>
 <ol>
