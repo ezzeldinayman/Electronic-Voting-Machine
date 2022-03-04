@@ -25,6 +25,7 @@
 <ol start='7'>
   <p>Main Program File for the Project:</p>
   <li>ElectronicVotingMachine.c</li>
+  <li>Project.pdsprj</li>
 </ol>
 <hr>
 <pre>
